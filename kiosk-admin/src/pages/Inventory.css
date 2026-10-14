@@ -1,0 +1,354 @@
+.inventory-container {
+  position: relative;
+  padding-bottom: 80px;
+  /* Space for FAB on mobile */
+}
+
+/* Mobile Card View */
+.inventory-cards-container {
+  display: grid;
+  gap: 16px;
+}
+
+.inventory-card {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.inventory-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.inventory-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.inventory-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.inventory-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inventory-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inventory-card-body {
+  margin-bottom: 16px;
+}
+
+.inventory-quantity-section {
+  background: #f5f5f5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.quantity-display {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.stock-status {
+  margin-top: 8px;
+}
+
+.auto-order-badge {
+  background: linear-gradient(135deg, #e0f7fa 0%, #e1f5fe 100%);
+  border: 1px solid #4dd0e1;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #00838f;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inventory-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Floating Action Button */
+.mobile-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px !important;
+  height: 56px !important;
+  box-shadow: 0 4px 12px rgba(22, 119, 255, 0.4);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-fab:hover {
+  box-shadow: 0 6px 16px rgba(22, 119, 255, 0.5);
+}
+
+.mobile-fab:active {
+  transform: scale(0.95);
+}
+
+/* Animation for mobile cards */
+.inventory-card {
+  animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for mobile */
+.inventory-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.inventory-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.inventory-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.inventory-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.inventory-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+/* Empty state */
+.inventory-cards-container:empty::after {
+  content: '재고 품목이 없습니다.';
+  display: block;
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 14px;
+}
+
+/* Progress bar custom styling */
+.ant-progress-line {
+  margin-bottom: 0;
+}
+
+.ant-progress-bg {
+  border-radius: 4px;
+}
+
+/* Desktop Card View */
+.inventory-desktop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 4px;
+}
+
+.inventory-card-desktop {
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.inventory-card-desktop:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  border-color: #1677ff;
+}
+
+.inventory-desktop-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.inventory-desktop-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 22px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(67, 233, 123, 0.3);
+}
+
+.inventory-desktop-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inventory-desktop-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inventory-desktop-body {
+  padding: 14px 0;
+}
+
+.inventory-desktop-quantity {
+  background: linear-gradient(135deg, #f6f9fc 0%, #f0f4f8 100%);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 12px;
+  border: 1px solid #e6ebf1;
+}
+
+.quantity-label-desktop {
+  margin-bottom: 6px;
+}
+
+.quantity-value-desktop {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.stock-status-desktop {
+  margin-bottom: 12px;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+.auto-order-badge-desktop {
+  background: linear-gradient(135deg, #e0f7fa 0%, #e1f5fe 100%);
+  border: 1px solid #4dd0e1;
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.auto-order-header-desktop {
+  display: flex;
+  align-items: center;
+  color: #00838f;
+}
+
+.inventory-desktop-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Card entrance animation for desktop */
+.inventory-card-desktop {
+  animation: fadeInScale 0.4s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Stagger animation for desktop cards */
+.inventory-card-desktop:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.inventory-card-desktop:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.inventory-card-desktop:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.inventory-card-desktop:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.inventory-card-desktop:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.inventory-card-desktop:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+/* Desktop-specific adjustments */
+@media (min-width: 769px) {
+  .inventory-container {
+    padding-bottom: 0;
+  }
+
+  .mobile-fab {
+    display: none;
+  }
+
+  /* Adjust header spacing for desktop */
+  .inventory-container>div:first-child {
+    margin-bottom: 32px !important;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "kiosk-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "kiosk-app",
+    "kiosk-admin",
+    "kiosk-backend",
+    "packages/*"
+  ],
+  "scripts": {},
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
+  },
+  "dependencies": {
+    "react-native-worklets-core": "^1.6.2"
+  }
+}
